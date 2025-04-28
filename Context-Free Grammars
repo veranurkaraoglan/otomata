@@ -1,0 +1,121 @@
+📘 Konu: Bağlamdan Bağımsız Gramerler (Context-Free Grammars - CFG)
+1. Ön Bilgi Tekrarı
+Pumping Lemma ile Düzenli Dil (RE) İspatı:
+Düzenli dillerde "Pumping Lemma" kullanılarak çelişki yöntemiyle düzenli olup olmadıkları kanıtlanır.
+
+Örnek:
+L = {u0v | u,v ∈ {0,1}* ve |u|=|v|} düzenli değildir.
+
+DFA ile Düzenli Dil İspatı:
+Bazı diller DFA kullanılarak düzenli olduğu gösterilebilir. Örneğin:
+A = {w ∈ {0,1}* | 0 ve 1 sayıları farkı 0 mod 3}
+
+2. Context-Free Grammars (CFG) ve Dilleri (CFL)
+CFG Tanımı:
+CFG = (V, Σ, R, S) şeklinde tanımlanır.
+
+V: Tüm semboller (terminal ve non-terminal)
+
+Σ: Terminal semboller (Σ ⊆ V)
+
+R: Üretim kuralları (V-Σ) x V*
+
+S: Başlangıç sembolü (S ∈ V-Σ)
+
+Özellikler:
+
+Değiştirme (türetme) sadece bir non-terminal üzerinde yapılır, bu yüzden "bağlamdan bağımsız" denir.
+
+Tüm regular diller aynı zamanda context-free dildir. Ancak her context-free dil regular değildir.
+
+CFG'ler dil üreticidir; regular expression'lara göre daha karmaşık diller üretir.
+
+3. Türetme (Derivation) ve Parse Tree (Türetme Ağacı)
+Türetme (Derivation):
+
+Bir string'i kural uygulayarak adım adım üretme süreci.
+
+Türetme uzunluğu: Türetme adım sayısı.
+
+Parse Tree (Türetme Ağacı):
+
+Kök (root): Başlangıç non-terminal sembolü.
+
+Yapraklar (leaves): Terminal semboller.
+
+Yaprakları soldan sağa okuyunca elde edilen string oluşturulur.
+
+Leftmost ve Rightmost Derivation:
+
+Leftmost Derivation: Her adımda en soldaki non-terminal değiştirilir.
+
+Rightmost Derivation: Her adımda en sağdaki non-terminal değiştirilir.
+
+4. Önemli Örnekler:
+Örnek 1:
+G = (V={S,a,b}, Σ={a,b}, R={S→aSb, S→ε})
+
+Dil: L(G) = {aⁿbⁿ | n ≥ 0}
+
+Örnek 2:
+Basit bir doğal dil grameri:
+
+S → PVP
+P → N | AP
+A → big | green
+N → cheese | Jim
+V → ate
+Üretilen örnekler:
+Jim ate cheese, big Jim ate green cheese, vb.
+
+Örnek 3:
+Doğru aritmetik ifadeler için CFG:
+
+
+E → E + T | T
+T → T * F | F
+F → (E) | id
+id * (id + id) ifadesi bu gramerle türetilir.
+
+Örnek 4:
+Dengeli parantez dili için CFG:
+
+
+S → ε | SS | (S)
+5. CFG ve DFA İlişkisi
+Bir DFA'dan CFG oluşturulabilir:
+
+Durumlar non-terminal olarak alınır.
+
+Geçişler üretim kuralları olur.
+
+6. Teorik Bilgiler
+Context-Free Diller:
+
+Union, concatenation ve Kleene star işlemlerine kapalıdır.
+
+Pushdown Automata (PDA) tarafından tanınır.
+
+PDA, finite automata'nın genelleştirilmiş halidir.
+
+7. Sınav İçin Notlar:
+Hangi Dil Türü Hangi Özellikte?
+
+L1 = {aⁿbᵐcᵈmfn}: Context-Free.
+
+L2 = {(ab)ⁿcᵈm}: Regular.
+
+L3 = {aⁿb(cd)ⁿeⁿ}: Ne regular ne de context-free.
+
+🔥 En Önemli Noktalar
+CFG tanımı: G = (V, Σ, R, S)
+
+Parse Tree kavramı ve derivation ilişkisi.
+
+Leftmost vs Rightmost derivation farkı.
+
+Regular diller ⊆ Context-Free diller.
+
+DFA → CFG dönüşümü temel kurallar.
+
+Sınavda: Verilen dilin regular mı, context-free mi olduğunu ayırt etmeye odaklan!
